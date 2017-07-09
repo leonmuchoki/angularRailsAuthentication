@@ -4,12 +4,17 @@ angular.module('angularRailsAuthentication')
   	
   		Auth.register($scope.user).then(function() {
   			//succcess
-  			console.log('success register');
   			$state.go('home');
 
   		}, function(error) {
-  			console.log('ERR->' + error.message);
-  			$state.go('register');
+  			console.log('ERR->' + error);
+  			$state.go('welcome');
+  		});
+  	};
+
+  	$scope.login = function() {
+  		Auth.login($scope.user).then(function() {
+  			$state.go('home');
   		});
   	};
   }]);

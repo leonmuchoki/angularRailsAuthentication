@@ -1,8 +1,20 @@
 <div class="collapse navbar-collapse pull-right" ng-controller="NavCtrl">
 	<ul class="nav navbar-nav">
 		<li ng-show="signedIn()"><a ui-sref="home">Home</a></li>
+		<li ng-hide="signedIn()"><a ui-sref="login">Sign In</a><li>
 		<li ng-hide="signedIn()"><a ui-sref="register">Register</a><li>
 		<li ng-show="signedIn()"><a href="#">{{ user.email }}</a></li>
+		<li ng-show="signedIn()"><a ng-click="logout()" href="#">Logout</a></li>
 	</ul>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div ng-show="success" ng-controller="NavCtrl">
+			<span>{{ success.status }}</span>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
+	</div>
 </div>
  
